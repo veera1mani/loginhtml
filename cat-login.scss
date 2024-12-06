@@ -1,0 +1,256 @@
+$primary-color: #FFCD11; // Example color for highlights
+$secondary-color: #000000; // Example dark background color
+$text-light: #FFFFFF;
+$text-light1: #808080;
+$text-dark: #000000;
+$overlay-color: #000000;
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Poppins", serif;
+    background-color: #f7f9fc;
+}
+
+.cat-logWrapper {
+    display: flex;
+    min-height: 100vh;
+
+    .leftSide {
+        flex: 1;
+        background:
+            url('./assets/Background-Pattern.svg') no-repeat center center,
+            linear-gradient($overlay-color, $overlay-color);
+        background-size: cover;
+        color: $text-light;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        animation: moveBackground 10s infinite alternate;
+        /* Loop infinitely with alternating direction */
+
+        /* Keyframes for moving the background vertically */
+        @keyframes moveBackground {
+            0% {
+                background-position: center 50%;
+                /* Start at 50% (middle of the screen) */
+            }
+
+            100% {
+                background-position: center 60%;
+                /* Move downward to 60% from the top */
+            }
+        }
+
+        &:after {
+            content: '';
+            background-image: url(./assets/Lantern-Light-elipse.svg);
+            width: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-repeat: no-repeat;
+            height: 100%;
+            background-position: top right;
+        }
+
+        .contentLeft {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; // Center content vertically
+            align-items: center; // Center content horizontally
+            flex: 1; // Take up available vertical space
+            text-align: center;
+            padding: 2rem;
+
+            h2 {
+                font-size: 1rem;
+                font-weight: normal;
+                margin-bottom: 1rem;
+                text-align: left;
+                width: 100%;
+            }
+
+            .Logo {
+                margin: 0.5rem 0;
+                z-index: 1;
+
+                img {
+                    width: 300px;
+                }
+            }
+
+
+        }
+
+        .catLogFooter {
+            margin-top: auto; // Aligns footer at the bottom
+            text-align: center;
+
+            .socialSec {
+                a {
+                    margin: 0 10px;
+                    text-decoration: none;
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+
+            .copyright {
+                margin-top: 1rem;
+
+                p {
+                    font-size: 12px;
+                    color: $text-light;
+                }
+            }
+        }
+    }
+
+    .rightSide {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $text-light;
+
+        .logCont {
+            max-width: 400px;
+            width: 100%;
+            padding: 2rem;
+
+            .lc-header {
+                text-align: left;
+
+                h2 {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    color: $secondary-color;
+                    margin-bottom: 0.5rem;
+                }
+
+                p {
+                    font-size: 14px;
+                    color: $text-light1;
+                }
+            }
+
+            .form {
+                margin-top: 4rem;
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+
+                    .formElement {
+                        display: flex;
+                        flex-direction: column;
+
+                        label {
+                            font-size: 0.8rem;
+                            margin-bottom: 0.5rem;
+                            color: $secondary-color;
+                        }
+
+                        input {
+                            padding: 0.8rem;
+                            border: 1px solid #ccc;
+                            border-radius: 5px;
+                            font-size: 0.8rem;
+
+                            &:focus {
+                                outline: none;
+                                border-color: $primary-color;
+                            }
+
+                            &:placeholder {
+                                font-size: 0.8rem;
+                            }
+                        }
+                    }
+                    .termsSection {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;  /* Space between checkbox and text */
+                        
+                        input[type="checkbox"] {
+                          width: 14px;
+                          height: 14px;
+                          margin-right: 2px;  /* Space between checkbox and label */
+                          
+                        }
+                      
+                        label {
+                          font-size: 0.8rem;
+                          color: $text-light1;
+                          
+                          a {
+                            color: $secondary-color;  /* Color for the link */
+                            text-decoration: none;
+                            
+                            &:hover {
+                              text-decoration: underline;
+                            }
+                          }
+                        }
+                    }
+
+                    .formAction {
+                        margin-top: 1.5rem;
+
+                        button {
+                            width: 100%;
+                            padding: 0.8rem;
+                            background-color: $primary-color;
+                            color: $secondary-color;
+                            border: none;
+                            border-radius: 5px;
+                            font-size: 1rem;
+                            font-weight: bold;
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            img {
+                                width: 20px;
+                                height: 20px;
+                                margin-left: 10px;
+                            }
+
+                            &:hover {
+                                background-color: darken($primary-color, 10%);
+                            }
+                        }
+                    }
+                }
+
+                p {
+                    text-align: center;
+                    margin-top: 1rem;
+                    font-size: 0.9rem;
+                    color: $secondary-color;
+
+                    a {
+                        color: $primary-color;
+                        text-decoration: none;
+                        font-weight: bold;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
